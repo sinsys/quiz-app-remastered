@@ -20,11 +20,11 @@ header {
 	justify-content: space-between;
 	align-items: center;
 }
-.title {
-	font-size: 2rem;
+h1.title {
+	font-size: 1.5rem;
 }
 .sub-title {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 }
 .hint {
 	margin-left: auto;
@@ -39,12 +39,14 @@ main {
 	align-items: center;
 	justify-content: center;
 }
+.launch-wrapper {
+	height: 80%;
+}
 .launch-wrapper, .question-wrapper {
 	width: 90%;
 	max-width: 960px;
 	margin: 1rem;
 	height: auto;
-	border: 1px dotted #999;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -52,37 +54,75 @@ main {
 }
 .launch-question {
 	width: 100%;
+	height: 75%;
 	font-size: 1.5rem;
 	background: #BBB;
 	text-align: center;
-	background: #DDD;
 }
 .launch-answer {
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	background: #CCC;
 	margin: 1rem 0;
 }
 .continue, .quit {
 	font-size: 1.5rem;
 	width: 40%;
 }
-/*.question {
-	width: 100%;
-	background: #CCC;
-}
-.answers {
-	width: 90%;
+.question-answer-wrapper {
 	display: flex;
+	height: 80%;
+	width: 90%;
+	border: 1px dotted #CCC;
 	flex-direction: column;
+	justify-content: space-between;
+	align-items: middle;
 }
-*/
-.submit-answer, .submit {
+
+.submit {
 	width: 100%;
-	margin: 1rem 0;
+	height: 100%;
+}
+.submit-answer-landscape {
+	display: none;
+}
+
+.question-wrapper, .answer-wrapper, .submit-answer-portrait {
+	display: flex;
+}
+.question-wrapper {
+	align-items: center;
+	justify-content: center;	
+	flex-basis: 25%;
+}
+.question-placeholder {
+	flex-basis: 100%;
+	height: 100%;
+}
+.answer-wrapper {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	flex-basis: 60%;
+	flex-wrap: wrap;
+}
+.answer{
+	flex-basis: 40%;
+	display: flex;
+	justify-content: center;
+}
+.answer-btn {
+	width: 90%;
+}
+.submit-answer-portrait {
+	flex-basis: 15%;
+	align-items: flex-end;
+}
+.submit {
+
 }
 /******* FOOTER *******/
 
@@ -93,13 +133,18 @@ main {
 /* Small devices (phones) */
 @media only screen and (max-width: 600px) {} 
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (768px and up) */
 @media only screen and (min-width: 768px) {
 	.launch-answer {
 		justify-content: space-around;
 	}
 } 
+@media screen and (orientation:portrait) {
 
+}
+@media screen and (orientation:landscape) {
+
+}
 /* Large devices (laptops/desktops, 960px and up) */
 @media only screen and (min-width: 960px) {
 	header {
@@ -111,29 +156,76 @@ main {
 		text-align: center;
 	}
 	.hint {
-		margin: 0;
+	}
+	.question-answer-wrapper {
+		display: flex;
+		flex-direction: row;
+		width: 60%;
+		height: 70%;
+		justify-content: center;
+		align-items: center;		
+	}
+	.question-wrapper, .answer-wrapper {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 	.question-wrapper {
 		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		
-	}
-	.question, .answers {
-		display: flex;
-		flex-direction: column;
 		height: 100%;
+		flex-basis: 50%;
+		border: 1px dotted #CCC;
+		align-items: center;
+		justify-content: center;
 	}
-	.question {
-		background: #CCC;
-	}
-	.answers {
+	.answer-wrapper {
+		display: flex;
+		height: 100%;
+		flex-basis: 50%;
+		align-items: center;
 		justify-content: space-between;
+		flex-wrap: nowrap;
 	}
 	.answer {
 		display: flex;
-		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+		margin: 1rem;
+
+	}
+	.answer-btn {
+		height: 100%;
+		width: 100%;
+	}
+	.answer:nth-child(1){
+		margin-top: 0;
+	}
+	.answer:nth-child(4){
+		margin-bottom: 0;
+	}
+	.question-placeholder {
+		width: 100%;
+		flex-basis: 100%;
+		margin: auto;
+		display: flex;
 		align-items: center;
+		justify-content: center;
+		border: 1px dotted #CCC;
 	}
 
+	.submit-answer-landscape {
+		margin-top: 1rem;
+		flex-basis: 25%;
+		width: 50%;
+		background: #AAA;
+	}
+	.submit-answer-portrait {
+		display: none;
+	}
+	.submit {
+		height: 100%;
+		margin: 0;
+	}
 } 

@@ -44,10 +44,10 @@ This is a work in progress and will be updated as the project continues along.
 ![Desktop - Results](http://stimhaus.com/image-assets-public/quiz-app/wireframes-10.jpg)
 
 ### HTML Responsive Mockups
-Launch: [Launch Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/launch.html "Launch Wireframe")
-Question: [Question Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/question.html "Question Wireframe")
-Feedback: [Feedback Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/launch.html "Feedback Wireframe")
-Results: [Results Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/results.html "Results Wireframe")
+Launch: [Launch Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/launch.html "Launch Wireframe")  
+Question: [Question Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/question.html "Question Wireframe")  
+Feedback: [Feedback Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/feedback.html "Feedback Wireframe")  
+Results: [Results Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/results.html "Results Wireframe")  
 
 ### Questions
 - > "What value would be returned with the following statement?"

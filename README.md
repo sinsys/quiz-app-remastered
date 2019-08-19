@@ -50,8 +50,54 @@ Feedback: [Feedback Wireframe](https://sinsys.github.io/quiz-app-remastered/wire
 Results: [Results Wireframe](https://sinsys.github.io/quiz-app-remastered/wireframes/results.html "Results Wireframe")  
 
 ### Questions
-- > "What value would be returned with the following statement?"
-- > "What is the value of ourObj.name after this executes?"
-- > "What is the total width of this item with standard box-sizing?"
-- > "How can we alter the following variable?"
-- > "What is the value of index *7* in this array?"
+
+- What is the one thing the lang property used for?
+- Why would someone use the role property?
+- What is accessibility in a website?
+- What does ARIA stand for?
+- What is an accessible method for making keyboard navigatable image icons?
+- Which method would we use to return the value 4?
+- How would we add a value to the end of the array?
+- What would we use to remove and return the last value of the array?
+- How would we find the length of the following array?
+- Which index is the value 9 at in the following array?
+- What are the 3 basic required elements for an HTML page?
+- Which HTML element is the largest heading and should generally only be used once?
+- Which HTML element creates a line break?
+- How do we create an HTML link?
+- Which of these elements are all `<table>` elements?
+- What is Flexbox?
+- To use flexbox we define a container as a flexbox. What is the CSS to do this?
+- flex-basis defines what...?
+- Which values are we able to use for flex-direction?
+- What does the css property order for flex items allow you to do?
+- What are considered the two most important attributes for a form?
+- What are the some of the most popular `<input>` types?
+- Which attribute of an input does the label for attribute relate to?
+- Which attribute of an input type of radio links them together to ensure only one is selected?
+- What is the difference between the GET and POST methods?
+- What are the two types of JavaScript loops?
+- What order do the 3 conditions of a for loop consist of?
+- What conditional would we use to run this loop 5 times?
+- What happens when a while loop's condition is always true?
+- What will the variable count be equal to at the end of this loop?
+- How do we convert this string of words into an array of the whole words?
+- How would we replace the second word in this string with the word 'will'?
+- How do you call this object's method?
+- What is a JavaScript method?
+- Why shouldn't we use ES6 arrow functions in object method declarations?
+- What does CSS stand for?
+- How would you set a background color to red?
+- What does box-sizing: border box do?
+- What is the difference between position: inline and position: inline-block?
+- What color would the `<p id='foo' class='para'>` paragraph be?
+- What are two types of conditional statements in JavaScript?
+- What will this conditional statement evaluate to?
+- When would you use a switch statement?
+- What will this conditional statement evaluate to?
+- What will this conditional statement evaluate to?
+- How do we console.log the value of the make of this car?
+- How do we push all of an object's keys into a new array called carProps?
+- What do you call a property of an object that is a function?
+- What makes an object different than an array?
+- What would the following code console.log?

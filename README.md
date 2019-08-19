@@ -35,7 +35,7 @@ This is a work in progress and will be updated as the project continues along.
 
 ### Questions
 #### Accessibility
-- What is the one thing the lang property used for?
+- What is one thing the `lang` property used for?
 - Why would someone use the role property?
 - What is accessibility in a website?
 - What does ARIA stand for?
@@ -58,12 +58,12 @@ This is a work in progress and will be updated as the project continues along.
 #### Flexbox
 - What is Flexbox?
 - To use flexbox we define a container as a flexbox. What is the CSS to do this?
-- flex-basis defines what...?
-- Which values are we able to use for flex-direction?
-- What does the css property order for flex items allow you to do?
+- `flex-basis` defines what...?
+- Which values are we able to use for `flex-direction`?
+- What does the css property `order` for flex items allow you to do?
 
 #### Forms
-- What are considered the two most important attributes for a form?
+- What are considered the two most important attributes for a `form`?
 - What are the some of the most popular `<input>` types?
 - Which attribute of an input does the label for attribute relate to?
 - Which attribute of an input type of radio links them together to ensure only one is selected?
@@ -86,22 +86,21 @@ This is a work in progress and will be updated as the project continues along.
 #### Misc CSS
 - What does CSS stand for?
 - How would you set a background color to red?
-- What does box-sizing: border box do?
-- What is the difference between position: inline and position: inline-block?
+- What does `box-sizing: border box` do?
+- What is the difference between `position: inline` and `position: inline-block`?
 - What color would the `<p id='foo' class='para'>` paragraph be?
 
 #### Conditionals
 - What are two types of conditional statements in JavaScript?
-- What will this conditional statement evaluate to?
 - When would you use a switch statement?
 - What will this conditional statement evaluate to?
 
 #### Objects
-- How do we console.log the value of the make of this car?
-- How do we push all of an object's keys into a new array called carProps?
+- How do we `console.log` the value of the make of this car?
+- How do we push all of an object's keys into a new array called `carProps`?
 - What do you call a property of an object that is a function?
 - What makes an object different than an array?
-- What would the following code console.log?
+- What would the following code `console.log`?
 
 ------------
 

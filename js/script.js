@@ -1,15 +1,10 @@
 
-function pickRandomQuestion(section){
-	let random = Math.floor(Math.random() * STORE.questions[section].length);
-	console.log(random);
-	return STORE.questions[section][random];
-}
 
 const STORE = {
 	questions: {
 		accessibility: [
 			{
-				question: "What is the one thing the lang property used for?",
+				question: "What is one thing the lang property used for?",
 				code: `<html lang="en">`,
 				answers: [
 					"To set what version of HTML the page uses",
@@ -617,33 +612,78 @@ const STORE = {
 	}
 }
 
-
-
 // Create quiz
 function createQuiz(){
-
+	// Creating an object to store the app's state when beginning the quiz
+	return {
+		// Gathering a random question out of the available questions for each category
+		questions: getRandomQuestions(STORE),
+		// Boolean for if the quiz is in progress or not
+		midQuiz: false,
+		// Array of correct/incorrect answers to use for our progress bar
+		progress: [],
+		// Boolean to determine if the end state should display
+		completed: false,
+		// Monitoring which question we are currently on
+		currentQuestion: 0
+	}
 };
 
 // Update DOM
-function updateDOM(){
+function updateDOM(start, appState){
 
+	// When the app is started
+	if(start){
+		// Apply fadeOut/fadeIn animations
+		$.when($('.start-quiz, .quit-quiz, .question').fadeOut(500))
+			.done(function(){
+		    	$('.question').text(appState.questions[appState.currentQuestion].question).fadeTo(500, 1);
+		    	for(let i=0; i<appState.questions[appState.currentQuestion].answers.length; i++){
+		    		console.log(appState.questions[appState.currentQuestion].answers[i]);
+		    	}
+		    });
+	// When we are somewhere in the middle of the quiz
+	} else if (appState.midQuiz === true){
+
+	};
 };
-function showAllQuestions(obj){
-	let allSections = Object.keys(obj.questions);
-	console.log(allSections);
-	let counter = 0;
-	for(let i=0; i<allSections.length;i++){
-		
-		for(let j=0; j<obj.questions[allSections[i]].length; j++){
-			$('#output').append(obj.questions[allSections[i]][j].question);
-			$('#output').append('<br>');
-			counter++;
-		}
-	}
-	console.log(counter);
-}
-showAllQuestions(STORE);
-$(function(){
 
+// Advancing to the next question
+function updateQuestion(appState, endCount){
+	if(appState.currentQuestion === endCount){
+		appState.completed = true;
+		appState.midQuiz = false;
+	} else {
+		appState.currentQuestion++;		
+	}
+
+}
+
+// HELPER FUNCTIONS
+// These are basic functions used to help us do misc tasks line randomize which question is presented
+let helpers = {
+	pickRandomQ: function(obj,section){
+		return Math.floor(Math.random() * obj.questions[section].length);		
+	}
+}
+
+// Gathering a random question out of the available questions for each category
+function getRandomQuestions(obj){
+	let questions = [];
+	let categories = Object.keys(obj.questions);
+	categories.forEach((cat) => {
+		let randomQ = helpers.pickRandomQ(obj,cat);
+		questions.push(obj.questions[cat][randomQ]);
+	});
+	return questions;
+}
+
+// DOM is ready. Let's start this bad boy!
+$(function(){
+	$('.start-quiz').on('click', function(){
+		let quizData = createQuiz();
+		quizData.midQuiz = true;
+		updateDOM(true, quizData);
+	})
 
 });

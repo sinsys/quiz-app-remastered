@@ -68,6 +68,7 @@ main {
 	flex-direction: row;
 }
 .answer-btn {
+	width: 90%;
 	margin: 0.25rem;
 }
 .submit-btn-landscape {

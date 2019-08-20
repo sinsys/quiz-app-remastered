@@ -1,5 +1,3 @@
-
-
 const STORE = {
 	questions: {
 		accessibility: [
@@ -610,7 +608,7 @@ const STORE = {
 			}
 		]
 	}
-}
+};
 
 // Create quiz
 function createQuiz(){
@@ -625,45 +623,82 @@ function createQuiz(){
 		// Boolean to determine if the end state should display
 		completed: false,
 		// Monitoring which question we are currently on
-		currentQuestion: 0
+		currentQuestion: 0,
+		// Keeps track of total correct answers
+		correctAnswers: 0,
+		// Keeps current selected answer
+		currentAnswer: "",
+		// Keeps track of % completed
+		percCorrect: 0
 	}
 };
 
-// Update DOM
+// Update DOM based on app state
 function updateDOM(start, appState){
-
 	// When the app is started
 	if(start){
 		// Apply fadeOut/fadeIn animations
 		$.when($('.start-quiz, .quit-quiz, .question').fadeOut(500))
 			.done(function(){
-		    	$('.question').text(appState.questions[appState.currentQuestion].question).fadeTo(500, 1);
-		    	for(let i=0; i<appState.questions[appState.currentQuestion].answers.length; i++){
-		    		console.log(appState.questions[appState.currentQuestion].answers[i]);
-		    	}
+				beginQuizDOM(appState);
 		    });
-	// When we are somewhere in the middle of the quiz
-	} else if (appState.midQuiz === true){
+	} else if(appState.midQuiz){
 
-	};
+	}
+	helpers.updateProgressBar(appState);
+	$('.submit-btn, .submit-btn-portrait').text('Continue').removeClass('.submit-btn, .submit-btn-portrait');
 };
 
-// Advancing to the next question
-function updateQuestion(appState, endCount){
-	if(appState.currentQuestion === endCount){
-		appState.completed = true;
-		appState.midQuiz = false;
-	} else {
-		appState.currentQuestion++;		
+function beginQuizDOM(appState){
+	// Create DOM array to hold answer DOM elements before presenting them
+	let $answers = [];
+	// Waited for fadeOut to finish. 
+	// Apply text changes and fadeIn appropriate elements
+	// Remove begin classes to setup quiz mode
+	// Remove hide class of hidden DOM elements for quiz mode
+	$('.question-answer-wrapper, .answer-wrapper').removeClass('begin');
+	$('.submit-btn, .submit-btn-portrait, .progress, .progress-bar').removeClass('hide');
+	$('.progress, .progress-bar').fadeIn(500);
+	$('.question').text(appState.questions[appState.currentQuestion].question).fadeTo(500, 1);
+	// Add in available answers for the question
+	for(let i=0; i<appState.questions[appState.currentQuestion].answers.length; i++){
+		// Add current question answer to the DOM
+		let $answer = $('<button class="answer-btn"></button>');
+		$answer.text(appState.questions[appState.currentQuestion].answers[i]);
+		$answers.push($answer);
 	}
-
+	// Shuffle the answers
+	helpers.shuffleAnswers($answers)
+	// Push answers to the DOM
+	$answers.forEach((answer) => {
+		$('.answer-wrapper').prepend(answer);
+	});
+	$('.progress').text(`
+		${appState.currentQuestion + 1} / ${appState.questions.length} // ${appState.percCorrect}%
+	`);
 }
 
 // HELPER FUNCTIONS
-// These are basic functions used to help us do misc tasks line randomize which question is presented
+// These are basic functions used to help us do misc tasks
 let helpers = {
+	// Pick a random question from the available ones
 	pickRandomQ: function(obj,section){
 		return Math.floor(Math.random() * obj.questions[section].length);		
+	},
+	// Shuffle the answers so they don't appear in the same order
+	shuffleAnswers: function(arr){
+	    for (var i = arr.length - 1; i > 0; i--) {
+	        var j = Math.floor(Math.random() * (i + 1));
+	        var temp = arr[i];
+	        arr[i] = arr[j];
+	        arr[j] = temp;
+	    }
+	},
+	updateProgressBar: function(appState){
+		$('.progress-bar').empty();
+		appState.progress.forEach((progInd => {
+			$('.progress-bar').append(progInd);
+		}))
 	}
 }
 
@@ -678,12 +713,83 @@ function getRandomQuestions(obj){
 	return questions;
 }
 
+// Highlights selected answer and sets selected answer string to quiz storage object
+function selectAnswer(answer, appState){
+	$('.answer-btn').removeClass('selected');
+	answer.addClass('selected');
+	$('.submit-btn, .submit-btn-portrait').prop("disabled", false);
+	appState.currentAnswer = answer.text();
+}
+
+// Actions to perform when a user submits an answer
+function submitAnswer(appState){
+	// This will be returned true or false based on their answer
+	let correct;
+	// Add styles to the answers to show if their answer was correct or not
+	$('.answer-btn').each(function () {
+		if($(this).text() === appState.questions[appState.currentQuestion].correctAnswer){
+			$(this).addClass('pass');
+			if($(this).hasClass('selected')){
+				correct = "pass";
+				appState.correctAnswers++;
+			}
+		} else if ($(this).hasClass('selected')){
+			$(this).addClass('fail');
+			correct = "fail";
+		}
+	});
+	// Add a progress bar indicator
+	appState.progress.push(`<div class="progress-indicator ${correct}"></div>`);
+	appState.currentQuestion++;
+	appState.percCorrect = appState.correctAnswers / appState.currentQuestion;
+	$('.progress').text(`
+		${appState.currentQuestion + 1} / ${appState.questions.length} // ${appState.percCorrect}%
+	`);
+	updateDOM(false, appState);
+}
+
+// Silly easter egg for saying you don't want to do the quiz
+function killQuiz(){
+	$('.start-quiz, .quit-quiz').hide();
+	let failureMsg = "You didn't grow. You didn't improve. You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was risked and nothing was gained. It's sad you don't know the difference..."
+	let msgSplit = failureMsg.split(" ");
+	let counter = 0;
+	$('.question').empty();
+	let startTroll = setInterval(function () {
+		$('.question').append(msgSplit[counter] + " ");
+		counter++;
+		if(counter > msgSplit.length - 1){
+  			clearInterval(startTroll);
+  			$('.start-quiz, .quit-quiz').fadeIn();
+		}
+	}, 250);
+}
+
 // DOM is ready. Let's start this bad boy!
 $(function(){
+	// Placeholder for quiz data
+	let quizData;
+	// Start the quiz and create storage for all current quiz properties
 	$('.start-quiz').on('click', function(){
-		let quizData = createQuiz();
+		quizData = createQuiz();
 		quizData.midQuiz = true;
 		updateDOM(true, quizData);
-	})
-
+	});
+	// Answer selection
+	$('.answer-wrapper').on('click', '.answer-btn', function(){
+		selectAnswer($(this), quizData);
+	});
+	// Submit answer and display feedback
+	$('.submit-btn, .submit-btn-portrait').on('click', function(){
+		submitAnswer(quizData);
+	});	
+	
+	// $('.continue-btn, .continue-btn-portrait').on('click', function(){
+	// 	$('.continue-btn, .continue-btn-portrait').text('Submit').removeClass('continue-btn continue-btn-portrait').addClass('submit-btn submit-btn-portrait');
+	// 	updateDOM(quizData);
+	// });
+	
+	$('.quit-quiz').on('click', function(){
+		killQuiz();
+	});
 });

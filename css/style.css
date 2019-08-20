@@ -70,4 +70,23 @@ header {
 .answer-btn {
 	color: #0C0;
 	height: 20%;
+	cursor: pointer;
+}
+.submit-btn {
+	cursor: pointer;
+}
+.answer-btn.selected {
+	transform: scale(1.1);
+	background: rgba(0,0,0,0.75);
+	border: 1px solid #71B6E3;
+}
+.answer-btn.selected.pass {
+	background: #4d914c;
+}
+.answer-btn.selected.fail {
+	background: #d15454;
+}
+.submit-btn, .submit-btn-portrait {
+	width: 100%;
+	margin: 0 auto;
 }

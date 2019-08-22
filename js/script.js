@@ -693,16 +693,25 @@ function $fade(appState){
 
 // Work in progress...
 function $showResults(appState){
-	$('.answer-btn').remove();
-	let endMsg = `You got ${appState.percCorrect}% correct!`
-	let endFeedback = `You missed a few. You may want to study up on the following topics:`;
-	$('.quiz-end-score').html(endMsg);
-	appState.progress.incorrectCategories.map((cat => {
-		endFeedback+="<p class='category'>" + cat + "</p>";
-	}));
-	$('.quiz-end-feedback').html(endFeedback);
-	$('.results-wrapper').removeClass('.hide');
-	$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').fadeIn(500);
+	if(appState.correctAnswers === 10){
+		let endMsg = `You got ${appState.percCorrect}% correct!
+I have nothing else to teach you. Move on and prosper!
+`;
+	} else {
+		$('.answer-btn').remove();
+		let endMsg = `You got ${appState.percCorrect}% correct!`
+		let endFeedback = `You missed a few. You may want to study up on the following topics:`;
+		$('.quiz-end-score').html(endMsg);
+		let $failList = $('<ul class="failures"></ul>');
+		appState.progress.incorrectCategories.map((cat => {
+			$failList.append("<li class='category'>" + cat + "</li>");
+		}));
+		$('.quiz-end-feedback').html(endFeedback);
+		$('.quiz-end-feedback').append($failList);
+		$('.results-wrapper').removeClass('.hide');
+		$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').fadeIn(500);		
+	}
+
 }
 
 // Update the question, code, answers, buttons in the DOM while we're in a faded out state

@@ -33,13 +33,21 @@ main {
 	display: flex;
 	flex-grow: 1;
 }
-.question-answer-wrapper {
+.question-answer-wrapper{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;	
 	flex-direction: column;
-	width: 90%;
+	width: 100%;
 	height: 90%;
+}
+form {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;	
+	flex-direction: column;
+	margin: 1rem 0;
 }
 .question-wrapper, .answer-wrapper {
 	display: flex;
@@ -68,6 +76,25 @@ main {
 .answer-btn {
 	width: 90%;
 	margin: 0.25rem;
+}
+.submit-btn:disabled,
+.continue-btn:disabled,
+.submit-btn,
+.continue-btn {
+	width: 100%;
+	border: 3px solid rgba(255,255,255,0.5);
+	flex-align: center;
+	justify-content: center;
+	opacity: 0.25;
+	padding: 2rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 1.75rem;
+}
+.submit-btn,
+.continue-btn {
+	border: 3px solid rgba(255,255,255,1);
+	background: rgba(0,255,0,0.5);
+	opacity: 1;
 }
 .submit-btn-landscape {
 	display: none;

@@ -567,7 +567,11 @@ else { return 3; }`,
 	make: "Audi",
 	model: "S4",
 	displayName: function(){
-		return this.year + " " + this.make + " " + this.model
+		return this.year +
+		    + " "
+		    + this.make 
+		    + " "
+		    + this.model
 	}
 }`,
 				answers: [
@@ -637,21 +641,33 @@ function makeQuiz(){
 	}
 }
 
-// Apply fadeOut animations
+// Apply fadeOut animations and set the stage for DOM text/element changes
 function $fade(appState){
-	// This is the starting state of the app. Begin quiz
+
+	// This is the completed state of of a quiz
 	if(appState.completed){
+
+		// Fade out elements with a promise to avoid choppy behavior
 		$.when($('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeOut(500))
 			.done(function(){
-				$('.results-wrapper').removeClass('hide').hide();
+
+				// Display results of the quiz
 				$showResults(appState);
+				$('.results-wrapper').hide().removeClass('hide');
 				$('.question-answer-wrapper, .results-wrapper').fadeIn(500);
 	    });
-		showResults(appState);
+
+	// This is if the app is just starting
 	} else if(appState.midQuiz === false){
+
+		// Set a flag that the app has begun
 		appState.midQuiz = true;
+
+		// Fade out elements with a promise to avoid choppy behavior
 		$.when($('.question-answer-wrapper, .question-wrapper, .code, .answer-wrapper, .start-quiz, .quit-quiz, .results-wrapper, .progress, .progress-bar').fadeOut(500))
 			.done(function(){
+
+				// Lots to do... mostly just setting up a new environment for a new quiz
 				$updateQuestion(appState);
 				$('progress-bar').empty();
 				$('progress-fill').html('Progress: <span class="progress-count">1 / 10</span><span class="progress-perc"></span>');
@@ -661,6 +677,8 @@ function $fade(appState){
 				$('.question-answer-wrapper, .question-wrapper, .answer-wrapper, .progress, .progress-bar').fadeIn(500);
 				if(!$('.code').hasClass('hide')){$('.code').fadeIn(500)};
 	    });
+
+	// This is if the app is in the middle of execution
 	} else if(appState.midQuiz){
 		$.when($('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeOut(500))
 			.done(function(){
@@ -670,9 +688,9 @@ function $fade(appState){
 	}
 }
 
+// Work in progress...
 function $showResults(appState){
 	$('.answer-btn').remove();
-
 	let endMsg = `You got ${appState.percCorrect}% answers correct!`
 	let endFeedback = `You missed a few. You may want to study up on the following topics:`;
 	$('.quiz-end-score').html(endMsg);
@@ -684,10 +702,15 @@ function $showResults(appState){
 	$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').fadeIn(500);
 }
 
+// Update the question, code, answers, buttons in the DOM while we're in a faded out state
 function $updateQuestion(appState){
 	$('.answer-btn').remove();
+
 	// Update the question and code text with the current question
 	$('.question').html(appState.questions[appState.currentQuestion].question);
+
+	// This is a hack to hide/show the code portion
+	// Only 1/3 of the questions contain code so we hide it if they aren't present
 	if(appState.questions[appState.currentQuestion].code == ``){
 		$('.code').addClass('hide');
 	} else {
@@ -697,71 +720,101 @@ function $updateQuestion(appState){
 	
 	// Change continue back to submit
 	$('.continue-btn')
+		.val("Submit")
 		.removeClass('continue-btn')
 		.addClass('submit-btn')
-		.text("Submit")
 		.prop('disabled', true);
 
-		console.log(appState.questions[appState.currentQuestion].category);
 	// Add in available answers for the question
 	let $answers = [];
+
+	// Adding the answers to a temporary array
 	for(let i=0; i<appState.questions[appState.currentQuestion].answers.length; i++){
-		// Add current question answers to an array before touching the DOM
-		let $answer = $('<button class="answer-btn"></button>');
+
+		// Add current question answers to an array
+		let $answer = $('<button class="answer-btn" type="button"></button>');
 		$answer.html(appState.questions[appState.currentQuestion].answers[i]);
 		$answers.push($answer);
 	}
+
 	// Shuffle the answers
 	helpers.shuffleAnswers($answers)
+
 	// Push answers to the DOM
 	$answers.forEach((answer) => {
 		$('.answer-wrapper').prepend(answer);
 	});
 }
 
+// Simple class and enable/disable DOM selection when answer is selected
 function selectAnswer(answer){
 	$('.answer-btn').removeClass('selected');
 	answer.addClass('selected');
 	$('.submit-btn').prop('disabled', false);
 }
 
+// Answer is selected and submitted.
+// Push a feedback state
 function submitAnswer(appState){
+
 	// This will be returned true or false based on their answer
 	let correct;
+
 	// Add styles to the answers to show if their answer was correct or not
 	$('.answer-btn').each(function () {
 		if($(this).html() === appState.questions[appState.currentQuestion].correctAnswer){
 			$(this).addClass('pass');
+			// If answer is correct and selected...
 			if($(this).hasClass('selected')){
 				correct = "pass";
 				appState.correctAnswers++;
 				appState.questions[appState.currentQuestion];
 			}
+
+		// Handle correct answer if selected answer is incorrect
 		} else if ($(this).hasClass('selected')){
-			$(this).addClass('fail');
+			$(this).addClass('fail dim-answer');
 			correct = "fail";
 			appState.progress.incorrectCategories.push(appState.questions[appState.currentQuestion].category);
+
+		// Dim the other answers to make the correct one more prevalent
+		} else {
+			$(this).addClass('dim-answer');
 		}
 	});
 
-	// Add a progress bar indicator
+	// Add a progress bar indicator to our appState object
 	appState.progress.progressBar.push(`<div class="progress-indicator ${correct}"></div>`);
-	// FIx this
 	
-	appState.percCorrect = parseFloat(appState.correctAnswers / (appState.currentQuestion + 1) * 100).toFixed(1);
+	// Update our percent correct (parse a float and set it to a fixed percentage)
+	appState.percCorrect = parseFloat(appState.correctAnswers / (appState.currentQuestion + 1) * 100).toFixed();
+
+	// Update our current question VS total quiz length
 	$('.progress-count').text(`
 		${appState.currentQuestion + 1} / ${appState.questions.length}
 	`);
+
+	// Update our current correct percentage
 	$('.progress-perc').text(`
 		 // ${(appState.percCorrect)}%
 	`)
+
+	// Change submit back to continue
 	$('.submit-btn')
+		.val("Continue")
 		.removeClass('submit-btn')
 		.addClass('continue-btn')
-		.text("Continue");
+
+	// Disable selecting answers
 	$('.answer-btn').prop("disabled", true);
+
+	// Update our progress-bar DOM
 	helpers.updateProgressBar(appState);
+
+	// Continue to next question
 	appState.currentQuestion++;
+
+	// Verify if we're done or not
 	if(appState.currentQuestion === appState.questions.length){
 		appState.completed = true;
 	}
@@ -785,6 +838,7 @@ function killQuiz(){
 	}, 250);
 }
 
+// These are simple algorithms to modify data that don't need an individual function
 let helpers = {
 	// Pick a random question from the available ones
 	pickRandomQ: function(obj,section){
@@ -819,8 +873,15 @@ let helpers = {
 		}))
 	}
 }
- 
+
+// Lets start the show
 $(function(){
+
+	// Kill any form refresh
+	$('.answer-wrapper').on('submit', function(e){
+		e.preventDefault();
+	});
+
 	// Storage for quiz app state
 	let quizData;
 
@@ -836,7 +897,7 @@ $(function(){
 	})
 
 	// Submit your answer to display feedback and advance question counter
-	$('.question-answer-wrapper').on('click', '.submit-btn', function(){
+	$('.question-answer-wrapper').on('click', '.submit-btn', function(e){
 		submitAnswer(quizData);
 	});
 
@@ -845,6 +906,7 @@ $(function(){
 		$fade(quizData);
 	});
 
+	// Easter egg to chastize the user
 	$('.quit-quiz').on('click', function(){
 		killQuiz();
 	})

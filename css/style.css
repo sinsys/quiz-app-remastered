@@ -24,11 +24,14 @@ button {
 /******* HEADER *******/
 
 html {
+	background: #000;
+}
+body {
 	background: url(../img/background.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;	
 }
 header {
 	background: rgba(0,0,0,0.5);
@@ -42,23 +45,32 @@ header {
 	margin-left: 1rem;
 }
 /******* MAIN CONTENT *******/
-
+.quiz-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	width: 100%;
+	height: 90%;
+}
 .question-wrapper {
 	border-radius: 10px;
 }
 .question, .code {
 	padding: 3rem;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.8);
+	border-radius: 10px;
 }
+.question, .start-quiz, .quit-quiz {
+	font-size: 1.75em;
+	border: 3px solid rgba(255,255,255,0.25);
+}
+
 .start-quiz, input[type="submit"] {
 	background: rgba(0,255,0,0.2);
 }
 .start-quiz:hover, input[type="submit"]:hover {
 	background: rgba(0,255,0,0.4);
 	border: 3px solid rgba(255,255,255,1);
-	transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
 }
 .quit-quiz {
 	background: rgba(255,0,0,0.2);
@@ -66,27 +78,35 @@ header {
 .quit-quiz:hover {
 	background: rgba(255,0,0,0.4);
 	border: 3px solid rgba(255,255,255,1);
-	transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
 }
 .answer-btn {
-	color: #0C0;
-	height: 20%;
+	color: #fefefe;
+	height: auto;
 	cursor: pointer;
+	font-size: 1.5rem;
+	background: rgba(0,0,0,0.5);
+	border: 3px solid rgba(255,255,255,0.2);
 }
 .submit-btn {
 	cursor: pointer;
 }
 .answer-btn.selected {
-	background: rgba(0,0,0,0.75);
-	border: 1px solid #71B6E3;
+	background: rgba(255,255,255,0.15);
+	border: 3px solid #71B6E3;
 }
 .answer-btn.selected.pass {
 	background: #4d914c;
 }
 .answer-btn.selected.fail {
-	background: #d15454;
+	background: rgba(255,0,0,0.5);
+	border: 3px solid #71B6E3;
+}
+.dim-answer {
+	opacity: 0.5;
+}
+.answer-btn.pass {
+	background: rgba(0,255,0,0.5);
+	border: 3px solid #00FF00;
 }
 .submit-btn, .submit-btn-portrait {
 	width: 100%;

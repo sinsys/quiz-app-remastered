@@ -599,7 +599,9 @@ else { return 3; }`,
 	total: 5,
 	multiplier: 4,
 	multiply: function(){
-		return this.total * this.multiplier;
+		return 
+			this.total *
+			this.multiplier;
 	}
 }
 console.log(obj.multiply() * 2);`,

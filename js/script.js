@@ -129,7 +129,8 @@ const STORE = {
 				correctAnswer: "&lt;h1&gt;"
 			},{
 				question: "Which HTML element creates a line break?",
-				code: `&lt;p&gt;The quick brown fox... &lt;tag&gt;jumped over the lazy dogs&lt;/p&gt;`,
+				code: `&lt;p&gt;The quick brown fox... 
+				&lt;tag&gt;jumped over the lazy dogs&lt;/p&gt;`,
 				answers: [
 					"&lt;break&gt;",
 					"&lt;hr&gt;",
@@ -196,9 +197,9 @@ const STORE = {
 					"The base of the flex element",
 					"The margin of the flex element",
 					"The boldness of the flex element",
-					"The width of the flex element"
+					"The initial size of the flex element"
 				],
-				correctAnswer: "&lt;br&gt;"
+				correctAnswer: "The initial size of the flex element"
 			},{
 				question: "Which values are we able to use for flex-direction?",
 				code: 
@@ -601,7 +602,7 @@ else { return 3; }`,
 		return this.total * this.multiplier;
 	}
 }
-console.log(obj.multiply * 2);`,
+console.log(obj.multiply() * 2);`,
 				answers: [
 					"10",
 					"8",
@@ -691,7 +692,7 @@ function $fade(appState){
 // Work in progress...
 function $showResults(appState){
 	$('.answer-btn').remove();
-	let endMsg = `You got ${appState.percCorrect}% answers correct!`
+	let endMsg = `You got ${appState.percCorrect}% correct!`
 	let endFeedback = `You missed a few. You may want to study up on the following topics:`;
 	$('.quiz-end-score').html(endMsg);
 	appState.progress.incorrectCategories.map((cat => {
@@ -753,7 +754,7 @@ function selectAnswer(answer){
 	$('.submit-btn').prop('disabled', false);
 }
 
-// Answer is selected and submitted.
+// Answer is selected and submitted
 // Push a feedback state
 function submitAnswer(appState){
 

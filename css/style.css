@@ -21,6 +21,9 @@ button {
 	padding: 0.5rem 1rem;
 	background: rgba(0,0,0,0.5);
 }
+button, input[type="submit"] {
+	cursor: pointer;
+}
 /******* HEADER *******/
 
 html {
@@ -55,20 +58,24 @@ header {
 .question-wrapper {
 	border-radius: 10px;
 }
-.question, .code {
+.question {
 	padding: 3rem;
-	background: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.3);
 	border-radius: 10px;
+}
+.code pre {
+	font-size: 1.25em;
+	color: #22FF44;
+
 }
 .question, .start-quiz, .quit-quiz {
 	font-size: 1.75em;
-	border: 3px solid rgba(255,255,255,0.25);
 }
 
-.start-quiz, input[type="submit"] {
+.start-quiz {
 	background: rgba(0,255,0,0.2);
 }
-.start-quiz:hover, input[type="submit"]:hover {
+.start-quiz:hover {
 	background: rgba(0,255,0,0.4);
 	border: 3px solid rgba(255,255,255,1);
 }
@@ -108,12 +115,43 @@ header {
 	background: rgba(0,255,0,0.5);
 	border: 3px solid #00FF00;
 }
-.submit-btn, .submit-btn-portrait {
-	width: 100%;
+.submit-btn, .continue-btn{
+	width: 90%
 	margin: 0 auto;
+	border-radius: 10px;
+}
+.quiz-end-score {
+	font-size: 2rem;
+	text-align: center;
+}
+.quiz-end-feedback {
+	font-size: 1.25rem;
+	color: #CCC;
 }
 
+.continue-btn {
+	background: rgba(247, 230, 116, 0.75);
+}
 /******* FOOTER *******/
+
 .progress-bar {
 	background: rgba(0,0,0,0.75);
+}
+
+.failures-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.failure {
+	padding: 0.25rem 1rem;
+	background: rgba(0,0,0,0.5);
+}
+
+
+.submit-btn, .continue-btn {
+	padding: 0.5rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 1.75rem;
 }

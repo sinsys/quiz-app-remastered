@@ -3,7 +3,7 @@ const STORE = {
 		accessibility: [
 			{
 				question: "What is one thing the lang property used for?",
-				code: `<html lang="en">`,
+				code: `&lt;html lang="en"&gt;`,
 				answers: [
 					"To set what version of HTML the page uses",
 					"To determine the linear angle for CSS properties",
@@ -13,7 +13,7 @@ const STORE = {
 				correctAnswer: "To be used by search engines to return language specific results"
 			},{
 				question: "Why would someone use the role property?",
-				code: `<div role="progressbar"></div>`,
+				code: `&lt;div role="progressbar"&gt;&lt;/div&gt;`,
 				answers: [
 					"To replace semantic markup",
 					"To add a heading or label to a section",
@@ -45,12 +45,12 @@ const STORE = {
 				question: "What is an accessible method for making keyboard navigatable image icons?",
 				code: ``,
 				answers: [
-					"<img src='test.jpg' access='keyboard' ...>",
-					"<nav keyboard='tab'><img ...></nav>",
-					"<img src='test.jpg' nav='true' ...>",
-					"<input type='image' src='test.jpg' ...>"
+					"&lt;img src='test.jpg' access='keyboard' ...&gt;",
+					"&lt;nav keyboard='tab'&gt;&lt;img ...&gt;&lt;/nav&gt;",
+					"&lt;img src='test.jpg' nav='true' ...&gt;",
+					"&lt;input type='image' src='test.jpg' ...&gt;"
 				],
-				correctAnswer: "<input type='image' src='test.jpg' ...>"
+				correctAnswer: "&lt;input type='image' src='test.jpg' ...&gt;"
 			}
 		],
 		arrays: [
@@ -111,58 +111,58 @@ const STORE = {
 				question: "What are the 3 basic required elements for an HTML page?",
 				code: ``,
 				answers: [
-					"<header>, <main>, <footer>",
-					"<start>, <middle>, <end>",
-					"<html>, <body>, <script>",
-					"<html>, <head>, <body>"
+					"&lt;header&gt;, &lt;main&gt;, &lt;footer&gt;",
+					"&lt;start&gt;, &lt;middle&gt;, &lt;end&gt;",
+					"&lt;html&gt;, &lt;body&gt;, &lt;script&gt;",
+					"&lt;html&gt;, &lt;head&gt;, &lt;body&gt;"
 				],
-				correctAnswer: "<html>, <head>, <body>"
+				correctAnswer: "&lt;html&gt;, &lt;head&gt;, &lt;body&gt;"
 			},{
 				question: "Which HTML element is the largest heading and should generally only be used once?",
 				code: ``,
 				answers: [
-					"<heading>",
-					"<title>",
-					"<h6>",
-					"<h1>"
+					"&lt;heading&gt;",
+					"&lt;title&gt;",
+					"&lt;h6&gt;",
+					"&lt;h1&gt;"
 				],
-				correctAnswer: "<h1>"
+				correctAnswer: "&lt;h1&gt;"
 			},{
 				question: "Which HTML element creates a line break?",
-				code: `<p>The quick brown fox... <tag>jumped over the lazy dogs</p>`,
+				code: `&lt;p&gt;The quick brown fox... &lt;tag&gt;jumped over the lazy dogs&lt;/p&gt;`,
 				answers: [
-					"<break>",
-					"<hr>",
-					"<lb>",
-					"<br>"
+					"&lt;break&gt;",
+					"&lt;hr&gt;",
+					"&lt;lb&gt;",
+					"&lt;br&gt;"
 				],
-				correctAnswer: "<br>"
+				correctAnswer: "&lt;br&gt;"
 			},{
 				question: "How do we create an HTML link?",
 				code: ``,
 				answers: [
-					"<link href='test.com'>Test.com</link>",
-					"<a src='test.com'>Test.com</a>",
-					"<href url='test.com'>Test.com</href>",
-					"<a href='test.com'>Test.com</a>"
+					"&lt;link href='test.com'&gt;Test.com&lt;/link&gt;",
+					"&lt;a src='test.com'&gt;Test.com&lt;/a&gt;",
+					"&lt;href url='test.com'&gt;Test.com&lt;/href&gt;",
+					"&lt;a href='test.com'&gt;Test.com&lt;/a&gt;"
 				],
-				correctAnswer: "<a href='test.com'>Test.com</a>"
+				correctAnswer: "&lt;a href='test.com'&gt;Test.com&lt;/a&gt;"
 			},{
-				question: "Which of these elements are all <table> elements?",
+				question: "Which of these elements are all &lt;table&gt; elements?",
 				code: 
-					`<table>
-						... 
-					</table>`,
+`&lt;table&gt;
+	... 
+&lt;/table&gt;`,
 				answers: [
-					"<thead>, <th>, <cell>",
-					"<thead>, <tbody>, <row>",
-					"<tbody>, <tr>, <cell>",
-					"<thead>, <tr>, <td>"
+					"&lt;thead&gt;, &lt;th&gt;, &lt;cell&gt;",
+					"&lt;thead&gt;, &lt;tbody&gt;, &lt;row&gt;",
+					"&lt;tbody&gt;, &lt;tr&gt;, &lt;cell&gt;",
+					"&lt;thead&gt;, &lt;tr&gt;, &lt;td&gt;"
 				],
-				correctAnswer: "<thead>, <tr>, <td>"
+				correctAnswer: "&lt;thead&gt;, &lt;tr&gt;, &lt;td&gt;"
 			}
 		],
-		flex: [
+		flexbox: [
 			{
 				question: "What is Flexbox?",
 				code: ``,
@@ -176,9 +176,9 @@ const STORE = {
 			},{
 				question: "To use flexbox we define a container as a flexbox. What is the CSS to do this?",
 				code: 
-					`.flex-container {
-						...
-					}`,
+`.flex-container {
+	...
+}`,
 				answers: [
 					"position: flex",
 					"display: flexbox",
@@ -189,22 +189,22 @@ const STORE = {
 			},{
 				question: "flex-basis defines what...?",
 				code: 
-					`.flex-item {
-						flex-basis: 20px;
-					}`,
+`.flex-item {
+	flex-basis: 20px;
+}`,
 				answers: [
 					"The base of the flex element",
 					"The margin of the flex element",
 					"The boldness of the flex element",
 					"The width of the flex element"
 				],
-				correctAnswer: "<br>"
+				correctAnswer: "&lt;br&gt;"
 			},{
 				question: "Which values are we able to use for flex-direction?",
 				code: 
-					`.flex-container {
-						flex-direction: ...
-					}`,
+`.flex-container {
+	flex-direction: ...
+}`,
 				answers: [
 					"flex-start, flex-end, space-between, space-around",
 					"start, center, end, space-evenly",
@@ -215,9 +215,9 @@ const STORE = {
 			},{
 				question: "What does the css property order for flex items allow you to do?",
 				code: 
-					`.flex-item {
-						order: ...
-					}`,
+`.flex-item {
+	order: ...
+}`,
 				answers: [
 					"Specify the direction that flex items appear",
 					"Define when each flex item is loaded",
@@ -231,8 +231,8 @@ const STORE = {
 			{
 				question: "What are considered the two most important attributes for a form?",
 				code: `
-					<form ...>
-					</form>`,
+&lt;form ...&gt;
+&lt;/form&gt;`,
 				answers: [
 					"lang, process",
 					"before, after",
@@ -241,8 +241,8 @@ const STORE = {
 				],
 				correctAnswer: "method, action"
 			},{
-				question: "What are the some of the most popular <input> types?",
-				code: `<input type='...'>`,
+				question: "What are the some of the most popular &lt;input&gt; types?",
+				code: `&lt;input type='...'&gt;`,
 				answers: [
 					"css, target, label",
 					"auto, keyboard, mouse",
@@ -253,8 +253,8 @@ const STORE = {
 			},{
 				question: "Which attribute of an input does the label for attribute relate to?",
 				code: 
-					`<label for=...></label>
-					<input ...>`,
+`&lt;label for=...&gt;&lt;/label&gt;
+&lt;input ...&gt;`,
 				answers: [
 					"role",
 					"value",
@@ -264,7 +264,7 @@ const STORE = {
 				correctAnswer: "id"
 			},{
 				question: "Which attribute of an input type of radio links them together to ensure only one is selected?",
-				code: `<input type='radio' ...>`,
+				code: `&lt;input type='radio' ...&gt;`,
 				answers: [
 					"role",
 					"value",
@@ -275,8 +275,8 @@ const STORE = {
 			},{
 				question: "What is the difference between the GET and POST methods?",
 				code: `
-					<form method='get'>
-					<form method='post'>`,
+&lt;form method='get'&gt;
+&lt;form method='post'&gt;`,
 				answers: [
 					"The GET method simply retrieves data while POST can send and receive",
 					"The POST method simply submits data while GET can send and receive",
@@ -313,10 +313,10 @@ const STORE = {
 				answers: [
 					"i===5",
 					"5",
-					"i<=5",
-					"i<5"
+					"i&lt;=5",
+					"i&lt;5"
 				],
-				correctAnswer: "i<5"
+				correctAnswer: "i&lt;5"
 			},{
 				question: "What happens when a while loop's condition is always true?",
 				code: `while(5===5){ ... }`,
@@ -330,11 +330,11 @@ const STORE = {
 			},{
 				question: "What will the variable count be equal to at the end of this loop?",
 				code: `
-					let count = 0;
-					for(let i=0; i<3; i++){
-						count+=1;
-					}
-					return count;`,
+let count = 0;
+for(let i=0; i&lt;3; i++){
+	count+=1;
+}
+return count;`,
 				answers: [
 					"1",
 					"2",
@@ -368,12 +368,12 @@ const STORE = {
 			},{
 				question: "How do you call this object's method?",
 				code: `
-					let obj = {
-						car: 'Car',
-						sayCar: function(){
-							console.log(this.car);
-						}
-					}`,
+let obj = {
+	car: 'Car',
+	sayCar: function(){
+		console.log(this.car);
+	}
+}`,
 				answers: [
 					"function sayCar(obj)",
 					"obj.function(sayCar)",
@@ -394,10 +394,10 @@ const STORE = {
 			},{
 				question: "Why shouldn't we use ES6 arrow functions in object method declarations?",
 				code: `
-					let obj = {
-						car: "Audi",
-						callCar: () => { return this.car }
-					}`,
+let obj = {
+	car: "Audi",
+	callCar: () =&gt; { return this.car }
+}`,
 				answers: [
 					"Arrow functions provide extra properties that are irrelevant to the object",
 					"Arrow functions require parameters",
@@ -407,7 +407,7 @@ const STORE = {
 				correctAnswer: "Arrow functions have a different scope of this than the object"
 			}
 		],
-		miscCSS: [
+		CSS: [
 			{
 				question: "What does CSS stand for?",
 				code: ``,
@@ -441,8 +441,8 @@ const STORE = {
 			},{
 				question: "What is the difference between position: inline and position: inline-block?",
 				code: `
-					position: inline;
-					position: inline-block;`,
+position: inline;
+position: inline-block;`,
 				answers: [
 					"inline is only used to define exclusive padding and margin",
 					"inline-block is only used to define additional margins",
@@ -451,12 +451,12 @@ const STORE = {
 				],
 				correctAnswer: "inline-block allows a user to define a width and height"
 			},{
-				question: "What color would the the <p id='foo' class='para'> paragraph be?",
+				question: "What color would the the &lt;p id='foo' class='para'&gt; paragraph be?",
 				code: 
-					`* { color: cyan; }
-					#foo { color: yellow; }
-					.para { color: red; }
-					p.para { color: blue; }`,
+`* { color: cyan; }
+#foo { color: yellow; }
+.para { color: red; }
+p.para { color: blue; }`,
 				answers: [
 					"cyan",
 					"red",
@@ -480,12 +480,12 @@ const STORE = {
 			},{
 				question: "What will this conditional statement evaluate to?",
 				code: 
-					`if(5<=2){ return true; } 
-					else { return false; }`,
+`if(5&lt;=2){ return true; } 
+else { return false; }`,
 				answers: [
-					"5 > 2",
+					"5 &gt; 2",
 					"true",
-					"5 <= 2",
+					"5 &lt;= 2",
 					"false"
 				],
 				correctAnswer: "false"
@@ -502,9 +502,9 @@ const STORE = {
 			},{
 				question: "What will this conditional statement evaluate to?",
 				code: 
-					`let foo = 1;
-					if(foo){ return true; }
-					else { return false; }`,
+`let foo = 1;
+if(foo){ return true; }
+else { return false; }`,
 				answers: [
 					"1",
 					"false",
@@ -515,10 +515,10 @@ const STORE = {
 			},{
 				question: "What will this conditional statement evaluate to?",
 				code:
-					`let foo = 0;
-					if(foo && foo < 5){ return 1; }
-					else if(foo < 5){ return 2; }
-					else { return 3; }`,
+`let foo = 0;
+if(foo && foo &lt; 5){ return 1; }
+else if(foo &lt; 5){ return 2; }
+else { return 3; }`,
 				answers: [
 					"1",
 					"3",
@@ -532,11 +532,11 @@ const STORE = {
 			{
 				question: "How do we console.log the value of the make of this car?",
 				code: 
-					`let car = {
-						year: 2018,
-						make: "Audi",
-						model: "S4"
-					}`,
+`let car = {
+	year: 2018,
+	make: "Audi",
+	model: "S4"
+}`,
 				answers: [
 					"console.log(obj.car(make))",
 					"console.log(car(make))",
@@ -547,11 +547,11 @@ const STORE = {
 			},{
 				question: "How do we push all of an object's keys into a new array called carProps?",
 				code: 
-					`let car = {
-						year: 2018,
-						make: "Audi",
-						model: "S4"
-					}`,
+`let car = {
+	year: 2018,
+	make: "Audi",
+	model: "S4"
+}`,
 				answers: [
 					"let carProps = car.keys(all)",
 					"let carProps = [Object(car).keys()]",
@@ -562,14 +562,14 @@ const STORE = {
 			},{
 				question: "What do you call a property of an object that is a function?",
 				code:
-					`let car = {
-						year: 2018,
-						make: "Audi",
-						model: "S4",
-						displayName: function(){
-							return this.year + " " + this.make + " " + this.model
-						}
-					}`,
+`let car = {
+	year: 2018,
+	make: "Audi",
+	model: "S4",
+	displayName: function(){
+		return this.year + " " + this.make + " " + this.model
+	}
+}`,
 				answers: [
 					"Object function",
 					"Return function",
@@ -590,14 +590,14 @@ const STORE = {
 			},{
 				question: "What would the following code console.log?",
 				code:
-					`let obj = {
-						total: 5,
-						multiplier: 4,
-						multiply: function(){
-							return this.total * this.multiplier;
-						}
-					}
-					console.log(obj.multiply * 2);`,
+`let obj = {
+	total: 5,
+	multiplier: 4,
+	multiply: function(){
+		return this.total * this.multiplier;
+	}
+}
+console.log(obj.multiply * 2);`,
 				answers: [
 					"10",
 					"8",
@@ -610,16 +610,20 @@ const STORE = {
 	}
 };
 
-// Create quiz
-function createQuiz(){
+
+// Make the quiz. Create a model for our app's state
+function makeQuiz(){
 	// Creating an object to store the app's state when beginning the quiz
 	return {
 		// Gathering a random question out of the available questions for each category
-		questions: getRandomQuestions(STORE),
+		questions: helpers.getRandomQuestions(STORE),
 		// Boolean for if the quiz is in progress or not
 		midQuiz: false,
 		// Array of correct/incorrect answers to use for our progress bar
-		progress: [],
+		progress: {
+			progressBar: [],
+			incorrectCategories: []
+		},
 		// Boolean to determine if the end state should display
 		completed: false,
 		// Monitoring which question we are currently on
@@ -631,40 +635,80 @@ function createQuiz(){
 		// Keeps track of % completed
 		percCorrect: 0
 	}
-};
+}
 
-// Update DOM based on app state
-function updateDOM(start, appState){
-	// When the app is started
-	if(start){
-		// Apply fadeOut/fadeIn animations
-		$.when($('.start-quiz, .quit-quiz, .question').fadeOut(500))
+// Apply fadeOut animations
+function $fade(appState){
+	// This is the starting state of the app. Begin quiz
+	if(appState.completed){
+		$.when($('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeOut(500))
 			.done(function(){
-				beginQuizDOM(appState);
-		    });
+				$('.results-wrapper').removeClass('hide').hide();
+				$showResults(appState);
+				$('.question-answer-wrapper, .results-wrapper').fadeIn(500);
+	    });
+		showResults(appState);
+	} else if(appState.midQuiz === false){
+		appState.midQuiz = true;
+		$.when($('.question-answer-wrapper, .question-wrapper, .code, .answer-wrapper, .start-quiz, .quit-quiz, .results-wrapper, .progress, .progress-bar').fadeOut(500))
+			.done(function(){
+				$updateQuestion(appState);
+				$('progress-bar').empty();
+				$('progress-fill').html('Progress: <span class="progress-count">1 / 10</span><span class="progress-perc"></span>');
+				$('.question-answer-wrapper, .answer-wrapper').removeClass('begin');
+				$('.submit-btn, .progress, .progress-bar').removeClass('hide');
+				$('.progress, .progress-bar').hide();
+				$('.question-answer-wrapper, .question-wrapper, .answer-wrapper, .progress, .progress-bar').fadeIn(500);
+				if(!$('.code').hasClass('hide')){$('.code').fadeIn(500)};
+	    });
 	} else if(appState.midQuiz){
-
+		$.when($('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeOut(500))
+			.done(function(){
+				$updateQuestion(appState);
+				$('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeIn(500);
+	    });
 	}
-	helpers.updateProgressBar(appState);
-	$('.submit-btn, .submit-btn-portrait').text('Continue').removeClass('.submit-btn, .submit-btn-portrait');
-};
+}
 
-function beginQuizDOM(appState){
-	// Create DOM array to hold answer DOM elements before presenting them
-	let $answers = [];
-	// Waited for fadeOut to finish. 
-	// Apply text changes and fadeIn appropriate elements
-	// Remove begin classes to setup quiz mode
-	// Remove hide class of hidden DOM elements for quiz mode
-	$('.question-answer-wrapper, .answer-wrapper').removeClass('begin');
-	$('.submit-btn, .submit-btn-portrait, .progress, .progress-bar').removeClass('hide');
-	$('.progress, .progress-bar').fadeIn(500);
-	$('.question').text(appState.questions[appState.currentQuestion].question).fadeTo(500, 1);
+function $showResults(appState){
+	$('.answer-btn').remove();
+
+	let endMsg = `You got ${appState.percCorrect}% answers correct!`
+	let endFeedback = `You missed a few. You may want to study up on the following topics:`;
+	$('.quiz-end-score').html(endMsg);
+	appState.progress.incorrectCategories.map((cat => {
+		endFeedback+="<p class='category'>" + cat + "</p>";
+	}));
+	$('.quiz-end-feedback').html(endFeedback);
+	$('.results-wrapper').removeClass('.hide');
+	$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').fadeIn(500);
+}
+
+function $updateQuestion(appState){
+	$('.answer-btn').remove();
+	// Update the question and code text with the current question
+	$('.question').html(appState.questions[appState.currentQuestion].question);
+	if(appState.questions[appState.currentQuestion].code == ``){
+		$('.code').addClass('hide');
+	} else {
+		$('.code').removeClass('hide');
+		$('.code').html(`<pre>${appState.questions[appState.currentQuestion].code}</pre>`);
+	}
+	
+	// Change continue back to submit
+	$('.continue-btn')
+		.removeClass('continue-btn')
+		.addClass('submit-btn')
+		.text("Submit")
+		.prop('disabled', true);
+
+		console.log(appState.questions[appState.currentQuestion].category);
 	// Add in available answers for the question
+	let $answers = [];
 	for(let i=0; i<appState.questions[appState.currentQuestion].answers.length; i++){
-		// Add current question answer to the DOM
+		// Add current question answers to an array before touching the DOM
 		let $answer = $('<button class="answer-btn"></button>');
-		$answer.text(appState.questions[appState.currentQuestion].answers[i]);
+		$answer.html(appState.questions[appState.currentQuestion].answers[i]);
 		$answers.push($answer);
 	}
 	// Shuffle the answers
@@ -673,79 +717,55 @@ function beginQuizDOM(appState){
 	$answers.forEach((answer) => {
 		$('.answer-wrapper').prepend(answer);
 	});
-	$('.progress').text(`
-		${appState.currentQuestion + 1} / ${appState.questions.length} // ${appState.percCorrect}%
-	`);
 }
 
-// HELPER FUNCTIONS
-// These are basic functions used to help us do misc tasks
-let helpers = {
-	// Pick a random question from the available ones
-	pickRandomQ: function(obj,section){
-		return Math.floor(Math.random() * obj.questions[section].length);		
-	},
-	// Shuffle the answers so they don't appear in the same order
-	shuffleAnswers: function(arr){
-	    for (var i = arr.length - 1; i > 0; i--) {
-	        var j = Math.floor(Math.random() * (i + 1));
-	        var temp = arr[i];
-	        arr[i] = arr[j];
-	        arr[j] = temp;
-	    }
-	},
-	updateProgressBar: function(appState){
-		$('.progress-bar').empty();
-		appState.progress.forEach((progInd => {
-			$('.progress-bar').append(progInd);
-		}))
-	}
-}
-
-// Gathering a random question out of the available questions for each category
-function getRandomQuestions(obj){
-	let questions = [];
-	let categories = Object.keys(obj.questions);
-	categories.forEach((cat) => {
-		let randomQ = helpers.pickRandomQ(obj,cat);
-		questions.push(obj.questions[cat][randomQ]);
-	});
-	return questions;
-}
-
-// Highlights selected answer and sets selected answer string to quiz storage object
-function selectAnswer(answer, appState){
+function selectAnswer(answer){
 	$('.answer-btn').removeClass('selected');
 	answer.addClass('selected');
-	$('.submit-btn, .submit-btn-portrait').prop("disabled", false);
-	appState.currentAnswer = answer.text();
+	$('.submit-btn').prop('disabled', false);
 }
 
-// Actions to perform when a user submits an answer
 function submitAnswer(appState){
 	// This will be returned true or false based on their answer
 	let correct;
 	// Add styles to the answers to show if their answer was correct or not
 	$('.answer-btn').each(function () {
-		if($(this).text() === appState.questions[appState.currentQuestion].correctAnswer){
+		if($(this).html() === appState.questions[appState.currentQuestion].correctAnswer){
 			$(this).addClass('pass');
 			if($(this).hasClass('selected')){
 				correct = "pass";
 				appState.correctAnswers++;
+				appState.questions[appState.currentQuestion];
 			}
 		} else if ($(this).hasClass('selected')){
 			$(this).addClass('fail');
 			correct = "fail";
+			appState.progress.incorrectCategories.push(appState.questions[appState.currentQuestion].category);
 		}
 	});
+
 	// Add a progress bar indicator
-	appState.progress.push(`<div class="progress-indicator ${correct}"></div>`);
-	appState.currentQuestion++;
-	appState.percCorrect = appState.correctAnswers / appState.currentQuestion;
-	$('.progress').text(`
-		${appState.currentQuestion + 1} / ${appState.questions.length} // ${appState.percCorrect}%
+	appState.progress.progressBar.push(`<div class="progress-indicator ${correct}"></div>`);
+	// FIx this
+	
+	appState.percCorrect = parseFloat(appState.correctAnswers / (appState.currentQuestion + 1) * 100).toFixed(1);
+	$('.progress-count').text(`
+		${appState.currentQuestion + 1} / ${appState.questions.length}
 	`);
-	updateDOM(false, appState);
+	$('.progress-perc').text(`
+		 // ${(appState.percCorrect)}%
+	`)
+	$('.submit-btn')
+		.removeClass('submit-btn')
+		.addClass('continue-btn')
+		.text("Continue");
+	$('.answer-btn').prop("disabled", true);
+	helpers.updateProgressBar(appState);
+	appState.currentQuestion++;
+	if(appState.currentQuestion === appState.questions.length){
+		appState.completed = true;
+	}
+	
 }
 
 // Silly easter egg for saying you don't want to do the quiz
@@ -760,36 +780,72 @@ function killQuiz(){
 		counter++;
 		if(counter > msgSplit.length - 1){
   			clearInterval(startTroll);
-  			$('.start-quiz, .quit-quiz').fadeIn();
+  			$('.start-quiz').text('You can do it! Start Quiz').fadeIn(500);
 		}
 	}, 250);
 }
 
-// DOM is ready. Let's start this bad boy!
+let helpers = {
+	// Pick a random question from the available ones
+	pickRandomQ: function(obj,section){
+		return Math.floor(Math.random() * obj.questions[section].length);		
+	},
+	// Gather a random question from every category
+	getRandomQuestions: function(obj){
+		let questions = [];
+		let categories = Object.keys(obj.questions);
+		categories.forEach((cat) => {
+			let randomQ = this.pickRandomQ(obj,cat);
+			let question = obj.questions[cat][randomQ];
+			question.category = cat;
+			questions.push(question);
+		});
+		return questions;
+	},
+	// Shuffle the answers so they don't appear in the same order
+	shuffleAnswers: function(arr){
+	    for (var i = arr.length - 1; i > 0; i--) {
+	        var j = Math.floor(Math.random() * (i + 1));
+	        var temp = arr[i];
+	        arr[i] = arr[j];
+	        arr[j] = temp;
+	    }
+	},
+	// Update progress bar DOM element
+	updateProgressBar: function(appState){
+		$('.progress-bar').empty();
+		appState.progress.progressBar.forEach((progInd => {
+			$('.progress-bar').append(progInd);
+		}))
+	}
+}
+ 
 $(function(){
-	// Placeholder for quiz data
+	// Storage for quiz app state
 	let quizData;
-	// Start the quiz and create storage for all current quiz properties
-	$('.start-quiz').on('click', function(){
-		quizData = createQuiz();
-		quizData.midQuiz = true;
-		updateDOM(true, quizData);
+
+	// Start quiz
+	$('.start-quiz, .retry-btn').on('click', function(){
+		quizData = makeQuiz();
+		$fade(quizData);
 	});
-	// Answer selection
-	$('.answer-wrapper').on('click', '.answer-btn', function(){
-		selectAnswer($(this), quizData);
-	});
-	// Submit answer and display feedback
-	$('.submit-btn, .submit-btn-portrait').on('click', function(){
+
+	// Select an answer
+	$('.question-answer-wrapper').on('click', '.answer-btn', function(){
+		selectAnswer($(this));
+	})
+
+	// Submit your answer to display feedback and advance question counter
+	$('.question-answer-wrapper').on('click', '.submit-btn', function(){
 		submitAnswer(quizData);
-	});	
-	
-	// $('.continue-btn, .continue-btn-portrait').on('click', function(){
-	// 	$('.continue-btn, .continue-btn-portrait').text('Submit').removeClass('continue-btn continue-btn-portrait').addClass('submit-btn submit-btn-portrait');
-	// 	updateDOM(quizData);
-	// });
-	
+	});
+
+	// Submit your answer to display feedback and advance question counter
+	$('.question-answer-wrapper').on('click', '.continue-btn', function(){
+		$fade(quizData);
+	});
+
 	$('.quit-quiz').on('click', function(){
 		killQuiz();
-	});
-});
+	})
+})

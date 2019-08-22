@@ -20,19 +20,20 @@
 		<main>
 			<article class="begin question-answer-wrapper">
 				<section class="hide results-wrapper">
-					<p class="quiz-end-feedback">Feedback on results</p>
-					<p class="quiz-end-score">Total score</p>
+					<p class="quiz-end-score"></p>
+					<p class="quiz-end-feedback"></p>
+					
 					<button class="retry-btn">Retry</button>
 					<button class="share-btn">Share</button>
 				</section>
 				<section class="question-wrapper">
-					<p class="question">Would you like to begin a test of basic front end web fundamentals?<span class="answer-boolean hide">Incorrect</span></p>
+					<p class="question">Would you like to begin a test of basic front end web fundamentals?</p>
+					<p class="hide code"></code>
 					<button class="hide submit-btn submit-btn-landscape" disabled>Submit</button>
 				</section>
 				<section class="begin answer-wrapper">
 					<button class="start-quiz">Start Quiz</button>
 					<button class="quit-quiz">Quit</button>
-					<button class="hide share-results">Quit</button>
 					<button class="hide submit-btn submit-btn-portrait" disabled>Submit</button>
 				</section>
 			</article>
@@ -40,10 +41,12 @@
 
 		<footer>
 			<section class="hide progress-bar">
-				<div class="progress-indicator pass"></div>
+				
 			</section>
 			<section class="hide progress">
-				<p>Completion Percentage</p>
+				<p class="progress-fill">
+					Progress: <span class="progress-count">1 / 10</span><span class="progress-perc"></span>
+				</p>
 			</section>
 		</footer>
 		<div id="output">

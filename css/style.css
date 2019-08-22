@@ -44,8 +44,11 @@ header {
 /******* MAIN CONTENT *******/
 
 .question-wrapper {
-	background: rgba(0,0,0,0.5);
 	border-radius: 10px;
+}
+.question, .code {
+	padding: 3rem;
+	background: rgba(0,0,0,0.5);
 }
 .start-quiz, input[type="submit"] {
 	background: rgba(0,255,0,0.2);
@@ -76,7 +79,6 @@ header {
 	cursor: pointer;
 }
 .answer-btn.selected {
-	transform: scale(1.1);
 	background: rgba(0,0,0,0.75);
 	border: 1px solid #71B6E3;
 }
@@ -89,4 +91,9 @@ header {
 .submit-btn, .submit-btn-portrait {
 	width: 100%;
 	margin: 0 auto;
+}
+
+/******* FOOTER *******/
+.progress-bar {
+	background: rgba(0,0,0,0.75);
 }

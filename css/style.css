@@ -1,6 +1,7 @@
+
 /******* HELPERS *******/
-.hide {
-	display: none !important;
+* .hide, * .hide > * {
+	display: none;
 }
 .pass {
 	background: #4d914c;
@@ -94,7 +95,7 @@ header {
 	background: rgba(0,0,0,0.5);
 	border: 3px solid rgba(255,255,255,0.2);
 }
-.submit-btn {
+button {
 	cursor: pointer;
 }
 .answer-btn.selected {
@@ -115,23 +116,17 @@ header {
 	background: rgba(0,255,0,0.5);
 	border: 3px solid #00FF00;
 }
-.submit-btn, .continue-btn{
+.submit-btn, .continue-btn, .retry-btn{
 	width: 90%
 	margin: 0 auto;
 	border-radius: 10px;
 }
-.quiz-end-score {
-	font-size: 2rem;
-	text-align: center;
-}
-.quiz-end-feedback {
-	font-size: 1.25rem;
-	color: #CCC;
-}
+
 
 .continue-btn {
 	background: rgba(247, 230, 116, 0.75);
 }
+
 /******* FOOTER *******/
 
 .progress-bar {
@@ -157,9 +152,49 @@ header {
 }
 
 /******* FEEDBACK *******/
+.results-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex-grow: 1;
+}
+.quiz-end-score {
+	display: flex;
+	font-size: 2rem;
+	text-align: center;
+}
+.quiz-end-feedback {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25rem;
+	color: #CCC;
+	width: 90%;
+	margin: 1rem;
+}
+.quiz-end-feedback-p {
+	margin: 1rem;
+}
 .category {
-	display: inline-block;
-	background: #336633;
+	display: flex;
 	border-radius: 10px;
 	padding: 0.25rem 1rem;
+	font-size: 1.5rem;
+	background: #d15454;
+	margin: 0.5rem;
+	padding: 0.25rem;
+}
+.quiz-end-categories {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+.failures {
+	width: 100%;
+	display: flex;
+}
+.category {
+
 }

@@ -14,25 +14,27 @@
 			<section class="title">
 				<h1>Quiz<span class="sub-title">Front End Fundamentals</span></h1>
 			</section>
-			<button class="hide hint-btn">Hint</button>
+			<button type="button" class="hide hint-btn">Hint</button>
 		</header>
 
 		<main>
 			<article class="begin question-answer-wrapper">
 				<section class="hide results-wrapper">
 					<p class="quiz-end-score"></p>
-					<div class="quiz-end-feedback"></div>
-					
-					<button class="retry-btn">Retry</button>
+					<div class="quiz-end-feedback">
+						<p class="quiz-end-feedback-p"></p>
+						<div class="quiz-end-categories"></div>
+					</div>
+					<button type="button" class="retry-btn pass">Retry</button>
 				</section>
 				<section class="question-wrapper">
 					<p class="question">Would you like to begin a test of basic front end web fundamentals?</p>
 					<p class="hide code"></code>
-					<button class="hide submit-btn submit-btn-landscape" disabled>Submit</button>
+					<button type="button" class="hide submit-btn submit-btn-landscape" disabled>Submit</button>
 				</section>
 				<form class="begin answer-wrapper">
-					<button class="start-quiz">Start Quiz</button>
-					<button class="quit-quiz">Quit</button>
+					<button type="button" class="start-quiz">Start Quiz</button>
+					<button type="button" class="quit-quiz">Quit</button>
 					<input type="submit" class="hide submit-btn submit-btn-portrait" value="Submit" disabled>
 				</form>
 			</article>

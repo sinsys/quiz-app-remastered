@@ -129,8 +129,9 @@ const STORE = {
 				correctAnswer: "&lt;h1&gt;"
 			},{
 				question: "Which HTML element creates a line break?",
-				code: `&lt;p&gt;The quick brown fox... 
-				&lt;tag&gt;jumped over the lazy dogs&lt;/p&gt;`,
+				code: `
+&lt;p&gt;The quick brown fox... 
+&lt;tag&gt;jumped over the lazy dogs&lt;/p&gt;`,
 				answers: [
 					"&lt;break&gt;",
 					"&lt;hr&gt;",
@@ -649,7 +650,7 @@ function $fade(appState){
 
 	// This is the completed state of of a quiz
 	if(appState.completed){
-
+		
 		// Fade out elements with a promise to avoid choppy behavior
 		$.when($('.question-answer-wrapper, .question-wrapper, .answer-wrapper').fadeOut(500))
 			.done(function(){
@@ -665,10 +666,14 @@ function $fade(appState){
 
 		// Set a flag that the app has begun
 		appState.midQuiz = true;
-
 		// Fade out elements with a promise to avoid choppy behavior
 		$.when($('.question-answer-wrapper, .question-wrapper, .code, .answer-wrapper, .start-quiz, .quit-quiz, .results-wrapper, .progress, .progress-bar').fadeOut(500))
 			.done(function(){
+
+				// Remove any progress from a previous quiz (if any);
+				helpers.updateProgressBar(appState);
+				$('.progress-count').html('1 / 10');
+				$('.progress-perc').html('');
 
 				// Lots to do... mostly just setting up a new environment for a new quiz
 				$updateQuestion(appState);
@@ -700,16 +705,16 @@ I have nothing else to teach you. Move on and prosper!
 	} else {
 		$('.answer-btn').remove();
 		let endMsg = `You got ${appState.percCorrect}% correct!`
-		let endFeedback = `You missed a few. You may want to study up on the following topics:`;
+		let endFeedback = `You may want to study up on the following topics:`;
 		$('.quiz-end-score').html(endMsg);
 		let $failList = $('<ul class="failures"></ul>');
 		appState.progress.incorrectCategories.map((cat => {
 			$failList.append("<li class='category'>" + cat + "</li>");
 		}));
-		$('.quiz-end-feedback').html(endFeedback);
-		$('.quiz-end-feedback').append($failList);
-		$('.results-wrapper').removeClass('.hide');
-		$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').fadeIn(500);		
+		$('.quiz-end-feedback-p').html(endFeedback);
+		$('.quiz-end-categories').append($failList);
+		$('.results-wrapper').removeClass('hide').css('display', 'flex');
+		$('.question-answer-wrapper, .results-wrapper, .quiz-end-feedback, .quiz-end-score, .retry-btn').css('display', 'flex').fadeIn(500);		
 	}
 
 }
@@ -802,13 +807,13 @@ function submitAnswer(appState){
 	appState.percCorrect = parseFloat(appState.correctAnswers / (appState.currentQuestion + 1) * 100).toFixed();
 
 	// Update our current question VS total quiz length
-	$('.progress-count').text(`
+	$('.progress-count').html(`
 		${appState.currentQuestion + 1} / ${appState.questions.length}
 	`);
 
 	// Update our current correct percentage
-	$('.progress-perc').text(`
-		 // ${(appState.percCorrect)}%
+	$('.progress-perc').html(`
+		 // ${(appState.percCorrect)}% Correct
 	`)
 
 	// Change submit back to continue

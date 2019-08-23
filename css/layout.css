@@ -1,5 +1,3 @@
-/******* RESET / BASE STYLING *******/
-
 * {
 	box-sizing: border-box;
 }
@@ -80,7 +78,8 @@ form {
 .submit-btn:disabled,
 .continue-btn:disabled,
 .submit-btn,
-.continue-btn {
+.continue-btn,
+.retry-btn {
 	width: 90%;
 	border: 3px solid rgba(255,255,255,0.5);
 	flex-align: center;
@@ -91,10 +90,14 @@ form {
 	font-size: 1.75rem;
 }
 .submit-btn,
-.continue-btn {
+.continue-btn,
+.retry-btn {
 	border: 3px solid rgba(255,255,255,1);
 	background: rgba(0,255,0,0.5);
 	opacity: 1;
+}
+.retry-btn {
+	width: auto;
 }
 .submit-btn-landscape {
 	display: none;

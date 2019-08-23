@@ -1,9 +1,12 @@
 # Quiz App
 ### Test your HTML, CSS, and JavaScript knowledge
 
-This is a work in progress and will be updated as the project continues along.
-
-------------
+### Extra Features:
+- 50 questions available within 10 categories
+- Each quiz will display a random question of each category
+- The answer order will be randomized to ensure you cannot cheat via memorization
+- The end quiz state will show which categories to study based on questions missed
+- A progress bar will display as you progress with color coding based on correct/incorrect answers
 
 #### Requirements (User Interface):
 - The starting screen should have a button that users can click to start the quiz.

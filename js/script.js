@@ -705,7 +705,13 @@ I have nothing else to teach you. Move on and prosper!
 	} else {
 		$('.answer-btn').remove();
 		let endMsg = `You got ${appState.percCorrect}% correct!`
-		let endFeedback = `You may want to study up on the following topics:`;
+		let endFeedback = ``;
+		if(appState.progress.incorrectCategories.length === 0){
+			endFeedback = `You aced it! Good job!`;
+		} else {
+			endFeedback = `You may want to study up on the following categories:`;
+		}
+		
 		$('.quiz-end-score').html(endMsg);
 		let $failList = $('<ul class="failures"></ul>');
 		appState.progress.incorrectCategories.map((cat => {

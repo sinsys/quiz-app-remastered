@@ -674,7 +674,7 @@ function $fade(appState){
 				$('.progress-count').html('1 / 10');
 				$('.progress-perc').html('');
 				// Kill previous results
-				$('.failuires').remove();
+				$('.failures').remove();
 				// Lots to do... mostly just setting up a new environment for a new quiz
 				$updateQuestion(appState);
 				$('progress-bar').empty();

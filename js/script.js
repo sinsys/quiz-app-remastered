@@ -669,12 +669,12 @@ function $fade(appState){
 		// Fade out elements with a promise to avoid choppy behavior
 		$.when($('.question-answer-wrapper, .question-wrapper, .code, .answer-wrapper, .start-quiz, .quit-quiz, .results-wrapper, .progress, .progress-bar').fadeOut(500))
 			.done(function(){
-
 				// Remove any progress from a previous quiz (if any);
 				helpers.updateProgressBar(appState);
 				$('.progress-count').html('1 / 10');
 				$('.progress-perc').html('');
-
+				// Kill previous results
+				$('.results').remove();
 				// Lots to do... mostly just setting up a new environment for a new quiz
 				$updateQuestion(appState);
 				$('progress-bar').empty();

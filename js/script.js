@@ -66,7 +66,8 @@ const STORE = {
     correctAnswer: "arr[1]"
    },{
     question: "How would we add a value to the end of the array?",
-    code: `let arr = ['a','b','c','d','e']`,
+    code: `let arr = 
+['a','b','c','d','e']`,
     answers: [
      "arr.pop('f')",
      "arr.append('f')",
@@ -76,7 +77,8 @@ const STORE = {
     correctAnswer: "arr.push('f')"
    },{
     question: "What would we use to remove and return the last value of the array?",
-    code: `let arr = [3,1,4,1,5,9]`,
+    code: `let arr = 
+[3,1,4,1,5,9]`,
     answers: [
      "arr.remove(9)",
      "arr.grep('9')",
@@ -86,7 +88,8 @@ const STORE = {
     correctAnswer: "arr.pop()"
    },{
     question: "How would we find the length of the following array?",
-    code: `let arr = [23,1,943,81,-52,3.14159]`,
+    code: `let arr = 
+[23,1,943,81,-52,3.14159]`,
     answers: [
      "arr.depth()",
      "arr.index",
@@ -96,7 +99,8 @@ const STORE = {
     correctAnswer: "arr.length"
    },{
     question: "Which index is the value 9 at in the following array?",
-    code: `let arr = [23,1,943,81,9,3.14159]`,
+    code: `let arr = 
+[23,1,943,81,9,3.14159]`,
     answers: [
      "2",
      "3",
@@ -349,7 +353,9 @@ return count;`,
   methods: [
    {
     question: "How do we convert this string of words into an array of the whole words?",
-    code: `let str = "The quick brown fox jumped over the lazy dogs"`,
+    code: `let str = 
+"The quick brown fox 
+jumped over the lazy dogs"`,
     answers: [
      "str.split()",
      "str.words('')",
@@ -398,7 +404,9 @@ let obj = {
     code: `
 let obj = {
  car: "Audi",
- callCar: () =&gt; { return this.car }
+ callCar: () =&gt; {
+  return this.car 
+ }
 }`,
     answers: [
      "Arrow functions provide extra properties that are irrelevant to the object",
@@ -518,9 +526,12 @@ else { return false; }`,
     question: "What will this conditional statement evaluate to?",
     code:
 `let foo = 0;
-if(foo && foo &lt; 5){ return 1; }
-else if(foo &lt; 5){ return 2; }
-else { return 3; }`,
+if(foo && foo &lt; 5){
+ return 1; }
+else if(foo &lt; 5){ 
+ return 2; }
+else { 
+ return 3; }`,
     answers: [
      "1",
      "3",
@@ -605,7 +616,7 @@ else { return 3; }`,
    this.multiplier;
  }
 }
-console.log(obj.multiply() * 2);`,
+console.log(obj.multiply()*2);`,
     answers: [
      "10",
      "8",

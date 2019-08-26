@@ -194,6 +194,7 @@ button {
 .failures {
 	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 }
 .category {
 
